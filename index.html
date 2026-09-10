@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=13">
+  <link rel="stylesheet" href="css/style.css?v=14">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -42,7 +42,7 @@
       <button class="nav-button" data-view="funds" type="button">Havi keretek</button>
       <button id="logoutButton" class="nav-button logout" type="button">Kilépés</button>
     </nav>
-    <div class="cloud-tools"><span id="syncStatus" class="sync-status">Helyi mentés</span><button id="refreshButton" class="refresh-button" type="button">↻ Frissítés</button></div>
+    <div class="cloud-tools"><span id="syncStatus" class="sync-status">Helyi mentés</span><button id="installButton" class="install-button" type="button">↓ Letöltés</button><button id="refreshButton" class="refresh-button" type="button">↻ Frissítés</button></div>
   </header>
 
   <main id="top" class="page">
@@ -104,7 +104,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=13"></script>
-  <script src="js/login.js?v=7"></script>
+  <script src="js/login.js?v=14"></script>
   <script src="js/app.js?v=13"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
