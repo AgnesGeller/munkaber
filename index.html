@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=16">
+  <link rel="stylesheet" href="css/style.css?v=17">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -81,6 +81,9 @@
         <span id="selectedCount">0 bérlap kijelölve</span>
         <button id="printSelected" class="button secondary" type="button" disabled>Kijelöltek nyomtatása</button>
         <button id="printAll" class="button primary" type="button">Összes nyomtatása A4-en</button>
+        <button class="button secondary" data-download-payroll="week" type="button">Heti letöltés</button>
+        <button class="button secondary" data-download-payroll="month" type="button">Havi letöltés</button>
+        <button class="button secondary" data-download-payroll="year" type="button">Éves letöltés</button>
       </div>
       <div id="employeeCards" class="employee-list"></div>
       <section class="totals" aria-labelledby="totalsTitle"><h2 id="totalsTitle">Heti összesítő</h2><div id="weeklyTotals" class="totals-grid"></div></section>
@@ -103,9 +106,9 @@
   <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="100" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="100" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="100" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha havi keret (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz havi keret (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
-  <script src="js/storage.js?v=13"></script>
-  <script src="js/login.js?v=14"></script>
-  <script src="js/app.js?v=16"></script>
+  <script src="js/storage.js?v=17"></script>
+  <script src="js/login.js?v=17"></script>
+  <script src="js/app.js?v=17"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>

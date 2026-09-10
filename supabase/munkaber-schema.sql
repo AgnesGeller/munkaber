@@ -51,3 +51,28 @@ drop trigger if exists munkaber_app_state_touch on public.munkaber_app_state;
 create trigger munkaber_app_state_touch
 before update on public.munkaber_app_state
 for each row execute function public.touch_munkaber_app_state();
+
+create table if not exists public.munkaber_devices (
+  token_hash text primary key,
+  manager_name text not null check (manager_name in ('Tamás', 'Ági')),
+  created_at timestamptz not null default now(),
+  last_used_at timestamptz not null default now(),
+  revoked boolean not null default false
+);
+
+alter table public.munkaber_devices enable row level security;
+revoke all on table public.munkaber_devices from anon, authenticated;
+revoke all on table public.munkaber_app_state from anon, authenticated;
+
+create index if not exists munkaber_devices_active_idx
+on public.munkaber_devices (revoked, last_used_at);
+
+create table if not exists public.munkaber_login_attempts (
+  client_hash text primary key,
+  attempts integer not null default 0,
+  window_started_at timestamptz not null default now(),
+  locked_until timestamptz
+);
+
+alter table public.munkaber_login_attempts enable row level security;
+revoke all on table public.munkaber_login_attempts from anon, authenticated;
