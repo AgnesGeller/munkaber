@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="stylesheet" href="css/style.css?v=11">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -36,7 +36,8 @@
   <header class="topbar">
     <a class="brand" href="#top" aria-label="Díszkertek Munkabér kezdőlap"><img src="assets/diszkertek-logo.png" alt="Díszkertek"><span>Munkabér</span></a>
     <nav aria-label="Fő navigáció">
-      <button class="nav-button active" data-view="payroll" type="button">Heti bérek</button>
+      <button class="nav-button active" data-view="attendance" type="button">Jelenléti ív</button>
+      <button class="nav-button" data-view="payroll" type="button">Heti bérek</button>
       <button class="nav-button" data-view="employees" type="button">Dolgozók</button>
       <button class="nav-button" data-view="funds" type="button">Havi keretek</button>
       <button id="refreshButton" class="nav-button" type="button">Frissítés</button>
@@ -50,7 +51,26 @@
       <img class="coin" src="assets/forint-icon.png" alt="Mosolygó 100 forintos">
     </section>
 
-    <section id="payrollView" class="view">
+    <section id="attendanceView" class="view">
+      <div class="section-title"><div><p class="eyebrow">NAPI ESEMÉNYNAPLÓ</p><h2>Jelenléti ív</h2></div></div>
+      <div class="attendance-layout">
+        <form id="attendanceForm" class="attendance-form">
+          <label>Dátum<input id="attendanceDate" name="date" type="date" required></label>
+          <details class="employee-picker"><summary id="employeePickerSummary">Dolgozók kiválasztása</summary><div id="attendanceEmployees"></div></details>
+          <label>Gyors művelet<select id="attendanceAction" name="action" required><option value="">Válassz eseményt…</option><option value="absence">Nem dolgozott (−1 nap)</option><option value="halfday">Fél nap (−1 nap + órák)</option><option value="paid-leave">Fizetett szabadság</option><option value="unpaid-leave">Fizetetlen szabadnap (−1 nap)</option><option value="rain">Esős nap (−1 nap)</option><option value="extra-day">Plusz munkanap (+1 nap)</option><option value="saturday">Szombati munkanap (+1 nap)</option><option value="hours">Normál munkaóra</option><option value="overtime">Túlóra</option><option value="bonus">Bónusz</option><option value="trip">Fuvar</option><option value="advance">Előleg</option><option value="loan">Kölcsön</option><option value="repayment">Törlesztés</option><option value="payback">Visszafizetés</option><option value="other-income">Egyéb bevétel</option><option value="other-deduction">Egyéb levonás</option><option value="custom">Egyedi esemény</option></select></label>
+          <div id="quantityField" class="event-field" hidden><label id="quantityLabel">Mennyiség<input name="quantity" type="number" step="0.5" min="0"></label></div>
+          <div id="amountField" class="event-field" hidden><label>Összeg (Ft)<input name="amount" type="number" step="100" min="0"></label></div>
+          <div id="labelField" class="event-field" hidden><label>Megnevezés<input name="label" maxlength="100"></label></div>
+          <div id="customFields" class="custom-fields" hidden><label>Napkorrekció<input name="dayDelta" type="number" step="0.5"></label><label>Normál óra<input name="normalHours" type="number" step="0.5" min="0"></label><label>Túlóra<input name="overtimeHours" type="number" step="0.5" min="0"></label><label>Összeg típusa<select name="amountDirection"><option value="income">Bevétel</option><option value="deduction">Levonás</option></select></label></div>
+          <label>Megjegyzés <small>(nem kötelező)</small><textarea name="note" rows="2" maxlength="300"></textarea></label>
+          <div id="attendancePreview" class="event-preview">Válassz dolgozót és eseményt.</div>
+          <button class="button primary" type="submit">Esemény rögzítése</button>
+        </form>
+        <section class="daily-log"><div class="daily-log-head"><div><small>KIVÁLASZTOTT NAP</small><h3 id="dailyLogDate"></h3></div><strong id="dailyEventCount">0 esemény</strong></div><div id="dailyEvents" class="daily-events"></div></section>
+      </div>
+    </section>
+
+    <section id="payrollView" class="view" hidden>
       <div class="week-nav" aria-label="Elszámolási hét kiválasztása">
         <button id="previousWeek" class="button secondary" type="button">← Előző hét</button>
         <div><small>Elszámolási időszak</small><strong id="weekRange"></strong><span id="payday"></span></div>
@@ -84,7 +104,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/storage.js?v=5"></script>
   <script src="js/login.js?v=7"></script>
-  <script src="js/app.js?v=7"></script>
+  <script src="js/app.js?v=11"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
