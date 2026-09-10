@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1256a0">
+  <meta name="description" content="Díszkertek munkabér- és keretnyilvántartó alkalmazás.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="hu_HU">
+  <meta property="og:title" content="Díszkertek Munkabér">
+  <meta property="og:description" content="Heti munkabér, kassza, munkaruha és téli pénz áttekintése.">
+  <meta property="og:url" content="https://agnesgeller.github.io/bootcamp-FREEE-munkaber/">
+  <meta property="og:image" content="https://agnesgeller.github.io/bootcamp-FREEE-munkaber/assets/forint-icon.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Díszkertek Munkabér">
+  <meta name="twitter:description" content="Heti munkabér, kassza, munkaruha és téli pénz áttekintése.">
+  <meta name="twitter:image" content="https://agnesgeller.github.io/bootcamp-FREEE-munkaber/assets/forint-icon.png">
+  <link rel="icon" href="assets/forint-icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/forint-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="css/style.css?v=2">
+  <title>Munkabér – Díszkertek</title>
+</head>
+<body>
+  <section id="loginView" class="login-view">
+    <form id="loginForm" class="login-card">
+      <img src="assets/diszkertek-logo.png" alt="Díszkertek"><img class="login-coin" src="assets/forint-icon.png" alt="">
+      <p class="eyebrow">VEZETŐI BELÉPÉS</p><h1>Munkabér</h1><p>Az alkalmazást kizárólag Tamás és Ági használhatja.</p>
+      <label>Név<select name="manager" required><option value="">Válassz…</option><option value="Tamás">Tamás</option><option value="Ági">Ági</option></select></label>
+      <label>PIN-kód<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="current-password" required></label>
+      <label class="remember"><input name="remember" type="checkbox" checked> Jegyezzen meg ezen az eszközön</label>
+      <button class="button primary" type="submit">Belépés</button><p id="loginStatus" class="login-status" role="status"></p>
+    </form>
+  </section>
+  <div id="appShell" hidden>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Díszkertek Munkabér kezdőlap"><img src="assets/diszkertek-logo.png" alt="Díszkertek"><span>Munkabér</span></a>
+    <nav aria-label="Fő navigáció">
+      <button class="nav-button active" data-view="payroll" type="button">Heti bérek</button>
+      <button class="nav-button" data-view="employees" type="button">Dolgozók</button>
+      <button class="nav-button" data-view="funds" type="button">Havi keretek</button>
+      <button id="logoutButton" class="nav-button logout" type="button">Kilépés</button>
+    </nav>
+  </header>
+
+  <main id="top" class="page">
+    <section class="page-head">
+      <div><p class="eyebrow">DÍSZKERTEK</p><h1>Munkabér</h1><p>Heti elszámolás péntektől csütörtökig.</p></div>
+      <img class="coin" src="assets/forint-icon.png" alt="Mosolygó 100 forintos">
+    </section>
+
+    <section id="payrollView" class="view">
+      <div class="week-nav" aria-label="Elszámolási hét kiválasztása">
+        <button id="previousWeek" class="button secondary" type="button">← Előző hét</button>
+        <div><small>Elszámolási időszak</small><strong id="weekRange"></strong><span id="payday"></span></div>
+        <button id="nextWeek" class="button secondary" type="button">Következő hét →</button>
+      </div>
+      <div id="employeeCards" class="employee-list"></div>
+      <section class="totals" aria-labelledby="totalsTitle"><h2 id="totalsTitle">Heti összesítő</h2><div id="weeklyTotals" class="totals-grid"></div></section>
+    </section>
+
+    <section id="employeesView" class="view" hidden>
+      <div class="section-title"><div><p class="eyebrow">BEÁLLÍTÁSOK</p><h2>Dolgozók</h2></div><button id="addEmployee" class="button primary" type="button">+ Új dolgozó</button></div>
+      <p class="section-note">A béradatok módosítása a következő számításnál azonnal érvényesül.</p>
+      <div id="employeeSettings" class="settings-list"></div>
+    </section>
+
+    <section id="fundsView" class="view" hidden>
+      <div class="section-title"><div><p class="eyebrow">KÜLÖN CÉGES KERETEK</p><h2>Munkaruha és téli pénz</h2></div></div>
+      <p class="section-note">A havi jóváírás a hónap utolsó napján automatikusan, hónaponként csak egyszer történik meg. Ezek az összegek nem részei a heti munkabérnek.</p>
+      <div id="fundCards" class="fund-list"></div>
+    </section>
+  </main>
+  </div>
+
+  <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="100" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="100" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="100" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha havi keret (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz havi keret (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/storage.js?v=4"></script>
+  <script src="js/login.js?v=4"></script>
+  <script src="js/app.js?v=4"></script>
+  <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
+</body>
+</html>
