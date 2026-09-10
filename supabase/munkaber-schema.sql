@@ -6,6 +6,9 @@ create table if not exists public.munkaber_app_state (
   updated_at timestamptz not null default now()
 );
 
+create index if not exists munkaber_app_state_updated_by_idx
+on public.munkaber_app_state (updated_by);
+
 alter table public.munkaber_app_state enable row level security;
 
 revoke all on table public.munkaber_app_state from anon;
