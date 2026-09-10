@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -27,7 +27,7 @@
       <img src="assets/diszkertek-logo.png" alt="Díszkertek"><img class="login-coin" src="assets/forint-icon.png" alt="">
       <p class="eyebrow">VEZETŐI BELÉPÉS</p><h1>Munkabér</h1><p>Az alkalmazást kizárólag Tamás és Ági használhatja.</p>
       <label>Név<select name="manager" required><option value="">Válassz…</option><option value="Tamás">Tamás</option><option value="Ági">Ági</option></select></label>
-      <label>PIN-kód<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="current-password" required></label>
+      <label id="pinLabel">PIN-kód<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="current-password" required></label>
       <label class="remember"><input name="remember" type="checkbox" checked> Jegyezzen meg ezen az eszközön</label>
       <button class="button primary" type="submit">Belépés</button><p id="loginStatus" class="login-status" role="status"></p>
     </form>
@@ -39,6 +39,7 @@
       <button class="nav-button active" data-view="payroll" type="button">Heti bérek</button>
       <button class="nav-button" data-view="employees" type="button">Dolgozók</button>
       <button class="nav-button" data-view="funds" type="button">Havi keretek</button>
+      <button id="refreshButton" class="nav-button" type="button">Frissítés</button>
       <button id="logoutButton" class="nav-button logout" type="button">Kilépés</button>
     </nav>
   </header>
@@ -82,8 +83,8 @@
   <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="100" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="100" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="100" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha havi keret (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz havi keret (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/storage.js?v=5"></script>
-  <script src="js/login.js?v=5"></script>
-  <script src="js/app.js?v=6"></script>
+  <script src="js/login.js?v=7"></script>
+  <script src="js/app.js?v=7"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
