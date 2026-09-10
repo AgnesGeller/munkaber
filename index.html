@@ -18,17 +18,16 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=17">
+  <link rel="stylesheet" href="css/style.css?v=18">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
   <section id="loginView" class="login-view">
     <form id="loginForm" class="login-card">
       <img src="assets/diszkertek-logo.png" alt="Díszkertek"><img class="login-coin" src="assets/forint-icon.png" alt="">
-      <p class="eyebrow">VEZETŐI BELÉPÉS</p><h1>Munkabér</h1><p>Az alkalmazást kizárólag Tamás és Ági használhatja.</p>
+      <h1>Munkabér</h1>
       <label>Név<select name="manager" required><option value="">Válassz…</option><option value="Tamás">Tamás</option><option value="Ági">Ági</option></select></label>
       <label id="pinLabel">PIN-kód<input name="pin" type="password" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" autocomplete="current-password" required></label>
-      <label class="remember"><input name="remember" type="checkbox" checked> Jegyezzen meg ezen az eszközön</label>
       <button class="button primary" type="submit">Belépés</button><p id="loginStatus" class="login-status" role="status"></p>
     </form>
   </section>
@@ -47,12 +46,12 @@
 
   <main id="top" class="page">
     <section class="page-head">
-      <div><p class="eyebrow">DÍSZKERTEK</p><h1>Munkabér</h1><p>Heti elszámolás péntektől csütörtökig.</p></div>
+      <div><p class="eyebrow">DÍSZKERTEK</p><h1>Munkabér</h1></div>
       <img class="coin" src="assets/forint-icon.png" alt="Mosolygó 100 forintos">
     </section>
 
     <section id="attendanceView" class="view">
-      <div class="section-title"><div><p class="eyebrow">NAPI ESEMÉNYNAPLÓ</p><h2>Jelenléti ív</h2></div></div>
+      <div class="section-title"><h2>Jelenléti ív</h2></div>
       <div class="attendance-layout">
         <form id="attendanceForm" class="attendance-form">
           <label>Dátum<input id="attendanceDate" name="date" type="date" required></label>
@@ -90,14 +89,12 @@
     </section>
 
     <section id="employeesView" class="view" hidden>
-      <div class="section-title"><div><p class="eyebrow">BEÁLLÍTÁSOK</p><h2>Dolgozók</h2></div><button id="addEmployee" class="button primary" type="button">+ Új dolgozó</button></div>
-      <p class="section-note">A béradatok módosítása a következő számításnál azonnal érvényesül.</p>
+      <div class="section-title"><h2>Dolgozók</h2><button id="addEmployee" class="button primary" type="button">+ Új dolgozó</button></div>
       <div id="employeeSettings" class="settings-list"></div>
     </section>
 
     <section id="fundsView" class="view" hidden>
-      <div class="section-title"><div><p class="eyebrow">KÜLÖN CÉGES KERETEK</p><h2>Munkaruha és téli pénz</h2></div></div>
-      <p class="section-note">A havi jóváírás a hónap utolsó napján automatikusan, hónaponként csak egyszer történik meg. Ezek az összegek nem részei a heti munkabérnek.</p>
+      <div class="section-title"><h2>Munkaruha és téli pénz</h2></div>
       <div id="fundCards" class="fund-list"></div>
     </section>
   </main>
@@ -107,7 +104,7 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=17"></script>
-  <script src="js/login.js?v=17"></script>
+  <script src="js/login.js?v=18"></script>
   <script src="js/app.js?v=17"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
