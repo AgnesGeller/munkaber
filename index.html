@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=14">
+  <link rel="stylesheet" href="css/style.css?v=15">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -66,7 +66,7 @@
           <div id="attendancePreview" class="event-preview">Válassz dolgozót és eseményt.</div>
           <button class="button primary" type="submit">Esemény rögzítése</button>
         </form>
-        <section class="daily-log"><div class="daily-log-head"><div><small>KIVÁLASZTOTT NAP</small><h3 id="dailyLogDate"></h3></div><strong id="dailyEventCount">0 esemény</strong></div><div id="dailyEvents" class="daily-events"></div></section>
+        <section class="daily-log"><div class="daily-log-head"><div><small>KIVÁLASZTOTT NAP</small><h3 id="dailyLogDate"></h3></div><div class="daily-log-actions"><strong id="dailyEventCount">0 esemény</strong><button id="deleteDailyEvents" class="delete-all-events" type="button" hidden>Összes törlése</button></div></div><div id="dailyEvents" class="daily-events"></div></section>
       </div>
     </section>
 
@@ -105,7 +105,7 @@
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=13"></script>
   <script src="js/login.js?v=14"></script>
-  <script src="js/app.js?v=13"></script>
+  <script src="js/app.js?v=15"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
