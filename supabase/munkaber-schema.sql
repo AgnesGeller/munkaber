@@ -76,3 +76,18 @@ create table if not exists public.munkaber_login_attempts (
 
 alter table public.munkaber_login_attempts enable row level security;
 revoke all on table public.munkaber_login_attempts from anon, authenticated;
+
+create table if not exists public.munkaber_records (
+  kind text not null check (kind in ('meta', 'employee', 'week', 'event', 'fund')),
+  record_key text not null,
+  data jsonb not null default '{}'::jsonb,
+  deleted boolean not null default false,
+  updated_at timestamptz not null default now(),
+  primary key (kind, record_key)
+);
+
+alter table public.munkaber_records enable row level security;
+revoke all on table public.munkaber_records from anon, authenticated;
+
+create index if not exists munkaber_records_updated_at_idx
+on public.munkaber_records (updated_at);

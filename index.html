@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/style.css?v=19">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -41,7 +41,7 @@
       <button class="nav-button" data-view="funds" type="button">Havi keretek</button>
       <button id="logoutButton" class="nav-button logout" type="button">Kilépés</button>
     </nav>
-    <div class="cloud-tools"><span id="syncStatus" class="sync-status">Helyi mentés</span><button id="installButton" class="install-button" type="button">↓ Letöltés</button><button id="refreshButton" class="refresh-button" type="button">↻ Frissítés</button></div>
+    <div class="cloud-tools"><button id="installButton" class="install-button" type="button">↓ Letöltés</button><button id="refreshButton" class="refresh-button" type="button">↻ Frissítés</button></div>
   </header>
 
   <main id="top" class="page">
@@ -103,7 +103,7 @@
   <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="100" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="100" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="100" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha havi keret (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz havi keret (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
-  <script src="js/storage.js?v=17"></script>
+  <script src="js/storage.js?v=19"></script>
   <script src="js/login.js?v=18"></script>
   <script src="js/app.js?v=17"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
