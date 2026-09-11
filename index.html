@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=31">
+  <link rel="stylesheet" href="css/style.css?v=32">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -104,11 +104,12 @@
       <div class="statistics-panel">
         <form id="statisticsFilters" class="statistics-filters">
           <label>Dolgozó<select id="statisticsEmployee"><option value="">Minden dolgozó</option></select></label>
+          <label>Bontás<select id="statisticsGrouping"><option value="week">Heti</option><option value="month">Havi</option><option value="year">Éves</option></select></label>
           <label>Kezdő dátum<input id="statisticsFrom" type="date"></label>
           <label>Záró dátum<input id="statisticsTo" type="date"></label>
         </form>
         <div id="statisticsSummary" class="statistics-summary"></div>
-        <div class="statistics-table-wrap"><table class="statistics-table"><thead><tr><th>Időszak</th><th>Dolgozó</th><th>Fizetett nap</th><th>Jövedelem</th><th>Kifizetendő</th><th>Bónusz</th><th>Kölcsön</th><th>Tartozás</th></tr></thead><tbody id="statisticsRows"></tbody></table></div>
+        <div class="statistics-table-wrap"><table class="statistics-table"><thead><tr><th>Időszak</th><th>Dolgozó</th><th>Fizetett nap</th><th>Jövedelem</th><th>Kifizetendő</th><th>Bónusz</th><th>Egyéb</th><th>Visszafizetés</th><th>Előleg</th><th>Kölcsön</th><th>Törlesztés</th><th>Kasszafeltöltés</th><th>Kasszakivonás</th><th>Átadandó összesen</th><th>Fennmaradó tartozás</th></tr></thead><tbody id="statisticsRows"></tbody></table></div>
       </div>
     </section>
   </main>
@@ -119,7 +120,7 @@
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=31"></script>
   <script src="js/login.js?v=31"></script>
-  <script src="js/app.js?v=31"></script>
+  <script src="js/app.js?v=32"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
