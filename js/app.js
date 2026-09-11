@@ -64,15 +64,16 @@
   }
   function itemLabel(item){const label=String(item?.label??"").trim();return label==="0"?"":label}
   function itemRows(items=[]) { return items.map(x=>`<div class="item-row" data-id="${x.id}"><input data-item="label" value="${esc(itemLabel(x))}" placeholder="Megnevezés" aria-label="Megnevezés"><input data-item="amount" type="number" value="${signed(x.amount)}" placeholder="Összeg" aria-label="Összeg"><button data-remove type="button" aria-label="Törlés">×</button></div>`).join(""); }
-  function itemSummaryText(items=[]){return items.filter(item=>itemLabel(item)||signed(item.amount)).map(item=>`${itemLabel(item)||"Tétel"}: ${fmt(signed(item.amount))}`).join(" · ")}
-  function updateItemSummary(card,type,items){const line=card.querySelector(`[data-item-summary="${type}"]`),text=itemSummaryText(items);line.hidden=!text;line.querySelector("span").textContent=text}
-  function addItemSummary(card,record){const box=document.createElement("div");box.className="pay-item-summary";box.innerHTML='<p data-item-summary="bonuses"><b>Bónusz:</b> <span></span></p><p data-item-summary="others"><b>Egyéb tétel:</b> <span></span></p>';card.querySelector(".details").before(box);updateItemSummary(card,"bonuses",record.bonuses||[]);updateItemSummary(card,"others",record.others||[])}
+  function activeItems(items=[]){return items.filter(item=>itemLabel(item)||signed(item.amount))}
+  function itemSummaryText(items=[]){return activeItems(items).map(item=>`${itemLabel(item)||"Tétel"}: ${fmt(signed(item.amount))}`).join(" · ")}
+  function updateItemSummary(card,type,items){const line=card.querySelector(`[data-item-summary="${type}"]`),text=itemSummaryText(items);line.hidden=!text;line.textContent=text;setOutput(card,type==="bonuses"?"bonusCount":"otherCount",activeItems(items).length)}
+  function addItemSummary(card,record){[["bonuses","bonus"],["others","other"]].forEach(([type,output])=>{const total=card.querySelector(`[data-output="${output}"]`),line=document.createElement("small");line.className="item-inline-summary";line.dataset.itemSummary=type;total.closest("tr").children[1].append(line);updateItemSummary(card,type,record[type]||[])})}
   function setOutput(card,name,value){card.querySelectorAll(`[data-output="${name}"]`).forEach(element=>element.textContent=value)}
   function updatePayOutputs(card,employeeId,record){
     const employee=state.employees.find(x=>x.employeeId===employeeId),c=calc(employeeId,record),vac=usedVacation(employeeId,weekStart.getFullYear());
     setOutput(card,"days",num(record.days));setOutput(card,"vacationSummary",`${num(record.vacation)} (${vac}/${employee.vacationAllowance})`);
     setOutput(card,"daysTotal",fmt(c.dayPay));setOutput(card,"hoursTotal",fmt(c.hourPay));setOutput(card,"overtimeTotal",fmt(c.overtimePay));setOutput(card,"vacationTotal",fmt(num(record.vacation)*num(employee.dailyRate)));
-    setOutput(card,"bonusCount",(record.bonuses||[]).length);setOutput(card,"otherCount",(record.others||[]).length);setOutput(card,"bonus",fmt(c.bonus));setOutput(card,"other",fmt(c.other));setOutput(card,"income",fmt(c.income));setOutput(card,"cash",fmt(c.cash));setOutput(card,"oldDebt",fmt(c.oldDebt));setOutput(card,"debt",fmt(c.debt));
+    setOutput(card,"bonusCount",activeItems(record.bonuses||[]).length);setOutput(card,"otherCount",activeItems(record.others||[]).length);setOutput(card,"bonus",fmt(c.bonus));setOutput(card,"other",fmt(c.other));setOutput(card,"income",fmt(c.income));setOutput(card,"cash",fmt(c.cash));setOutput(card,"oldDebt",fmt(c.oldDebt));setOutput(card,"debt",fmt(c.debt));
     updateItemSummary(card,"bonuses",record.bonuses||[]);updateItemSummary(card,"others",record.others||[]);
     const current=card.querySelector("[data-cash-current]");if(current){current.textContent=fmt(c.current);card.querySelector("[data-cash-next]").textContent=fmt(c.nextCash);card.querySelector("[data-cash-topup]").textContent=fmt(num(record.cashbox?.topup));card.querySelector("[data-cash-total]").textContent=fmt(c.totalCash)}
     renderTotals();
