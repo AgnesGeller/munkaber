@@ -45,6 +45,8 @@
   function previousDebtRaw(employeeId) { const keys=Object.keys(state.weeks).filter(k=>k<iso(weekStart)).sort(); if(!keys.length)return 0; const r=state.weeks[keys.at(-1)][employeeId]||{}; const oldKey=weekStart; weekStart=new Date(keys.at(-1)+"T12:00:00"); const result=calc(employeeId,r).debt; weekStart=oldKey; return result; }
   function save(message) { PayrollStorage.save(state); if(message)toast(message); }
   function toast(message){const el=document.getElementById("toast");el.textContent=message;el.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.classList.remove("show"),2200)}
+  document.addEventListener("focusin",event=>{const input=event.target;if(input.matches?.('input[type="number"]')&&signed(input.value)===0)input.value=""});
+  document.addEventListener("focusout",event=>{const input=event.target;if(input.matches?.('input[type="number"]')&&input.value.trim()===""){input.value="0";input.dispatchEvent(new Event("input",{bubbles:true}))}});
 
   function renderWeek() {
     const end=addDays(weekStart,6), pay=addDays(end,1), key=iso(weekStart), records=getWeek(key);
