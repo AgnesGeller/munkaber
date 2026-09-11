@@ -62,7 +62,7 @@
           <div id="labelField" class="event-field" hidden><label>Megnevezés<input name="label" maxlength="100"></label></div>
           <div id="customFields" class="custom-fields" hidden><label>Napkorrekció<input name="dayDelta" type="number" step="0.5"></label><label>Normál óra<input name="normalHours" type="number" step="0.5" min="0"></label><label>Túlóra<input name="overtimeHours" type="number" step="0.5" min="0"></label><label>Összeg típusa<select name="amountDirection"><option value="income">Bevétel</option><option value="deduction">Levonás</option></select></label></div>
           <label>Megjegyzés <small>(nem kötelező)</small><textarea name="note" rows="2" maxlength="300"></textarea></label>
-          <div id="attendancePreview" class="event-preview">Válassz dolgozót és eseményt.</div>
+          <div id="attendancePreview" class="event-preview" hidden></div>
           <button class="button primary" type="submit">Esemény rögzítése</button>
         </form>
         <section class="daily-log"><div class="daily-log-head"><div><small>KIVÁLASZTOTT NAP</small><h3 id="dailyLogDate"></h3></div><div class="daily-log-actions"><strong id="dailyEventCount">0 esemény</strong><button id="deleteSelectedEvents" class="delete-selected-events" type="button" disabled hidden>Kijelöltek törlése</button><button id="deleteDailyEvents" class="delete-all-events" type="button" hidden>Összes törlése</button></div></div><div id="dailyEvents" class="daily-events"></div></section>
@@ -104,8 +104,8 @@
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=19"></script>
-  <script src="js/login.js?v=18"></script>
-  <script src="js/app.js?v=17"></script>
+  <script src="js/login.js?v=21"></script>
+  <script src="js/app.js?v=21"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
