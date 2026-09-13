@@ -82,7 +82,7 @@
   }
   function itemLabel(item){const label=String(item?.label??"").trim();return label==="0"?"":label}
   function itemRows(items=[]) { return items.map(x=>`<div class="item-row" data-id="${x.id}"><input data-item="label" value="${esc(itemLabel(x))}" placeholder="Megnevezés" aria-label="Megnevezés"><input data-item="amount" type="text" inputmode="numeric" value="${moneyNum(x.amount)||""}" placeholder="Összeg" aria-label="Összeg"><button data-remove type="button" aria-label="Törlés">×</button></div>`).join(""); }
-  function activeItems(items=[]){return items.filter(item=>itemLabel(item)||moneyNum(item.amount))}
+  function activeItems(items=[]){return items.filter(item=>moneyNum(item.amount))}
   function itemSummaryText(items=[]){return activeItems(items).map(item=>`${itemLabel(item)||"Tétel"}: ${fmt(moneyNum(item.amount))}`).join(" · ")}
   function updateItemSummary(card,type,items){const line=card.querySelector(`[data-item-summary="${type}"]`),text=itemSummaryText(items);line.hidden=!text;line.textContent=text}
   function addItemSummary(card,record){[["bonuses","bonus"],["others","other"]].forEach(([type,output])=>{const total=card.querySelector(`[data-output="${output}"]`),row=total.closest("tr"),line=document.createElement("small"),cell=row.children[1];row.classList.add(type==="bonuses"?"bonus-item-row":"other-item-row");cell.textContent="";line.className=`item-inline-summary ${type==="bonuses"?"bonus-summary":"other-summary"}`;line.dataset.itemSummary=type;cell.append(line);updateItemSummary(card,type,record[type]||[])})}
