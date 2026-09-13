@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=34">
+  <link rel="stylesheet" href="css/style.css?v=35">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -59,7 +59,7 @@
           <details class="employee-picker"><summary id="employeePickerSummary">Dolgozók kiválasztása</summary><div id="attendanceEmployees"></div></details>
           <label>Gyors művelet<select id="attendanceAction" name="action" required><option value="">Válassz eseményt…</option><option value="absence">Nem dolgozott (−1 nap)</option><option value="halfday">Fél nap (−1 nap + órák)</option><option value="paid-leave">Fizetett szabadság</option><option value="unpaid-leave">Fizetetlen szabadnap (−1 nap)</option><option value="rain">Esős nap (−1 nap)</option><option value="extra-day">Plusz munkanap (+1 nap)</option><option value="saturday">Szombati munkanap (+1 nap)</option><option value="hours">Normál munkaóra</option><option value="overtime">Túlóra</option><option value="bonus">Bónusz</option><option value="trip">Fuvar</option><option value="advance">Előleg</option><option value="loan">Kölcsön</option><option value="repayment">Törlesztés</option><option value="payback">Visszafizetés</option><option value="other-income">Egyéb bevétel</option><option value="other-deduction">Egyéb levonás</option><option value="custom">Egyedi esemény</option></select></label>
           <div id="quantityField" class="event-field" hidden><label id="quantityLabel">Mennyiség<input name="quantity" type="number" step="0.5" min="0"></label></div>
-          <div id="amountField" class="event-field" hidden><label>Összeg (Ft)<input name="amount" type="number" step="100" min="0"></label></div>
+          <div id="amountField" class="event-field" hidden><label>Összeg (Ft)<input name="amount" type="text" inputmode="numeric"></label></div>
           <div id="labelField" class="event-field" hidden><label>Megnevezés<input name="label" maxlength="100"></label></div>
           <div id="customFields" class="custom-fields" hidden><label>Napkorrekció<input name="dayDelta" type="number" step="0.5"></label><label>Normál óra<input name="normalHours" type="number" step="0.5" min="0"></label><label>Túlóra<input name="overtimeHours" type="number" step="0.5" min="0"></label><label>Összeg típusa<select name="amountDirection"><option value="income">Bevétel</option><option value="deduction">Levonás</option></select></label></div>
           <label>Megjegyzés <small>(nem kötelező)</small><textarea name="note" rows="2" maxlength="300"></textarea></label>
@@ -116,12 +116,12 @@
   </main>
   </div>
 
-  <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="100" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="100" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="100" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha naponta (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz naponta (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
+  <dialog id="employeeDialog"><form id="employeeForm" method="dialog"><div class="dialog-head"><h2>Dolgozó adatai</h2><button class="icon-button" value="cancel" aria-label="Bezárás">×</button></div><input name="id" type="hidden"><div class="form-grid"><label>Név<input name="name" required></label><label>Napibér (Ft)<input name="dailyRate" type="number" min="0" step="1" required></label><label>Órabér (Ft)<input name="hourlyRate" type="number" min="0" step="1" required></label><label>Túlóradíj (Ft/óra)<input name="overtimeRate" type="number" min="0" step="1" required></label><label>Éves szabadságkeret (nap)<input name="vacationAllowance" type="number" min="0" step="0.5" required></label><label>Munkaruha naponta (Ft)<input name="workwearMonthly" type="number" min="0" step="1000"></label><label>Téli pénz naponta (Ft)<input name="winterMonthly" type="number" min="0" step="1000"></label><label class="check"><input name="cashier" type="checkbox"> Kasszával rendelkezik</label></div><div class="dialog-actions"><button class="button secondary" value="cancel">Mégse</button><button class="button primary" value="save">Mentés</button></div></form></dialog>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/supabase-config.js?v=13"></script>
-  <script src="js/storage.js?v=31"></script>
+  <script src="js/storage.js?v=35"></script>
   <script src="js/login.js?v=31"></script>
-  <script src="js/app.js?v=34"></script>
+  <script src="js/app.js?v=35"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
