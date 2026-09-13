@@ -18,7 +18,7 @@
   <link rel="icon" href="assets/forint-icon.png" type="image/png">
   <link rel="apple-touch-icon" href="assets/forint-icon.png">
   <link rel="manifest" href="manifest.webmanifest">
-  <link rel="stylesheet" href="css/style.css?v=33">
+  <link rel="stylesheet" href="css/style.css?v=34">
   <title>Munkabér – Díszkertek</title>
 </head>
 <body>
@@ -104,11 +104,10 @@
       <div class="statistics-panel">
         <form id="statisticsFilters" class="statistics-filters">
           <label>Dolgozó<select id="statisticsEmployee"><option value="">Minden dolgozó</option></select></label>
-          <label>Szűrés<select id="statisticsMode"><option value="month">Havi</option><option value="year">Éves</option><option value="date">Dátum szerint</option></select></label>
-          <label id="statisticsYearField">Év<select id="statisticsYear"></select></label>
-          <label id="statisticsMonthField">Hónap<select id="statisticsMonth"><option value="01">1. hónap – január</option><option value="02">2. hónap – február</option><option value="03">3. hónap – március</option><option value="04">4. hónap – április</option><option value="05">5. hónap – május</option><option value="06">6. hónap – június</option><option value="07">7. hónap – július</option><option value="08">8. hónap – augusztus</option><option value="09">9. hónap – szeptember</option><option value="10">10. hónap – október</option><option value="11">11. hónap – november</option><option value="12">12. hónap – december</option></select></label>
-          <label id="statisticsFromField" hidden>Kezdő dátum<input id="statisticsFrom" type="date"></label>
-          <label id="statisticsToField" hidden>Záró dátum<input id="statisticsTo" type="date"></label>
+          <label>Év<select id="statisticsYear"><option value="">Minden év</option></select></label>
+          <label>Hónap<select id="statisticsMonth"><option value="">Minden hónap</option><option value="01">Január</option><option value="02">Február</option><option value="03">Március</option><option value="04">Április</option><option value="05">Május</option><option value="06">Június</option><option value="07">Július</option><option value="08">Augusztus</option><option value="09">Szeptember</option><option value="10">Október</option><option value="11">November</option><option value="12">December</option></select></label>
+          <label>Kezdő dátum <small>(opcionális)</small><input id="statisticsFrom" type="date"></label>
+          <label>Záró dátum <small>(opcionális)</small><input id="statisticsTo" type="date"></label>
         </form>
         <div id="statisticsSummary" class="statistics-summary"></div>
         <div class="statistics-table-wrap"><table class="statistics-table"><thead><tr><th>Időszak</th><th>Dolgozó</th><th>Fizetett nap</th><th>Jövedelem</th><th>Kifizetendő</th><th>Bónusz</th><th>Egyéb</th><th>Visszafizetés</th><th>Előleg</th><th>Kölcsön</th><th>Törlesztés</th><th>Kasszafeltöltés</th><th>Kasszakivonás</th><th>Átadandó összesen</th><th>Fennmaradó tartozás</th></tr></thead><tbody id="statisticsRows"></tbody><tfoot id="statisticsTotals"></tfoot></table></div>
@@ -122,7 +121,7 @@
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=31"></script>
   <script src="js/login.js?v=31"></script>
-  <script src="js/app.js?v=33"></script>
+  <script src="js/app.js?v=34"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
