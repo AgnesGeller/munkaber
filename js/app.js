@@ -29,6 +29,7 @@
       data.pdfStart20260910=true;changed=true;
     }
     if(!data.vacationPdfV2){const gabor=(data.employees||[]).find(e=>e.employeeId==="gabor");if(gabor){gabor.vacationOpening=2;gabor.vacationOpeningYear=2026}data.vacationPdfV2=true;changed=true}
+    if(!data.vacationPdfV3){const gabor=(data.employees||[]).find(e=>e.employeeId==="gabor");if(gabor){gabor.vacationOpening=2;gabor.vacationOpeningYear=2026}data.vacationPdfV3=true;changed=true}
     return changed
   }
   if(migrateState(state))localStorage.setItem(PayrollStorage.key,JSON.stringify(state));
