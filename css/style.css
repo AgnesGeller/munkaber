@@ -30,26 +30,28 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
 @media(max-width:650px){.fuel-setting-row{grid-template-columns:22px 1fr}.fuel-setting-row span,.fuel-setting-row>input[type="number"]{grid-column:2}.fuel-setting-row>input[type="number"]{font-size:16px}}
 
 @media print{
-  body.print-selected .pay-head h2{font-size:17pt;font-weight:900}
-  body.print-selected .pay-head strong{font-size:10.5pt;font-weight:900}
-  body.print-selected .pay-head small{font-size:9.5pt;font-weight:800}
-  body.print-selected .summary-strip span{font-size:8.8pt;font-weight:800}
-  body.print-selected .summary-strip b{font-size:10.2pt;font-weight:900}
-  body.print-selected .pay-table{table-layout:fixed;font-size:9.3pt;font-weight:650;line-height:1.04}
-  body.print-selected .pay-table th,body.print-selected .pay-table td{height:4.4mm;padding:.3mm .55mm}
+  body.print-selected .pay-head{min-height:15mm;padding:2mm 2.4mm}
+  body.print-selected .pay-head h2{font-size:19pt;font-weight:900}
+  body.print-selected .pay-head strong{font-size:11.5pt;font-weight:900}
+  body.print-selected .pay-head small{font-size:10.5pt;font-weight:800}
+  body.print-selected .summary-strip span{padding:1mm .6mm;font-size:9.8pt;font-weight:800}
+  body.print-selected .summary-strip b{font-size:11.5pt;font-weight:900}
+  body.print-selected .pay-table{table-layout:fixed;font-size:10.5pt;font-weight:650;line-height:1.08}
+  body.print-selected .pay-table th,body.print-selected .pay-table td{height:6mm;padding:.6mm .6mm}
   body.print-selected .pay-table th{font-weight:900}
   body.print-selected .pay-table th:nth-child(1){width:34%}
   body.print-selected .pay-table th:nth-child(2){width:14%}
   body.print-selected .pay-table th:nth-child(3){width:24%}
   body.print-selected .pay-table th:nth-child(4){width:28%}
   body.print-selected .pay-table th:nth-child(2),body.print-selected .pay-table input[data-field="days"],body.print-selected .pay-table input[data-field="hours"],body.print-selected .pay-table input[data-field="overtime"],body.print-selected .pay-table input[data-field="vacation"],body.print-selected .fuel-row td:nth-child(2){text-align:center}
-  body.print-selected .pay-table input{height:3.4mm;font-size:9.3pt;font-weight:800}
+  body.print-selected .pay-table input{height:4.5mm;font-size:10.5pt;font-weight:800}
   body.print-selected .pay-table .number,body.print-selected .pay-row-total{font-weight:900;white-space:nowrap}
-  body.print-selected .item-inline-summary{font-size:8.5pt;font-weight:800;line-height:1.02}
-  body.print-selected .debt-row .debt-pair{padding:.3mm .55mm;font-size:7.4pt;font-weight:800;white-space:nowrap}
-  body.print-selected .debt-row .debt-pair strong{margin-left:.5mm;font-size:7.8pt}
-  body.print-selected .cash-row td{font-size:8.8pt;line-height:1.05}
-  body.print-selected .cash-row td:last-child{font-size:9.8pt}
+  body.print-selected .item-inline-summary{font-size:9.5pt;font-weight:800;line-height:1.06}
+  body.print-selected .debt-row{display:grid;grid-template-columns:1fr}
+  body.print-selected .debt-row .debt-pair{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:6mm;padding:.6mm .8mm;font-size:9.5pt;font-weight:800;white-space:nowrap}
+  body.print-selected .debt-row .debt-pair strong{margin-left:1mm;font-size:10.5pt}
+  body.print-selected .cash-row td{font-size:9.8pt;line-height:1.08}
+  body.print-selected .cash-row td:last-child{font-size:11pt}
 }
 
 .bonus-item-row td{background:#fff0b5!important}.bonus-summary{color:#7a5700}.other-item-row td{background:#dff2df!important}.other-summary{color:#266b2a}.refresh-button.working{background:#fff1aa}.refresh-button.refreshed{border-color:#3d8b2e;color:#fff;background:#56a532}.refresh-button.refresh-error{border-color:#b9161e;color:#fff;background:var(--red)}
