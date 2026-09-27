@@ -93,7 +93,7 @@
     const labels={payback:"Visszafizetés (+)",advance:"Előleg (−)",loan:"Kölcsön (+)",repayment:"Törlesztés (−)"};
     Object.entries(labels).forEach(([field,label])=>{const input=card.querySelector(`[data-field="${field}"]`);if(input)input.closest("tr").children[0].textContent=label});
     const summary=card.querySelector(".summary-strip span:nth-child(2)");if(summary)summary.firstChild.textContent="Felhasznált szabadság";
-    const debt=card.querySelector(".debt-row");if(debt){debt.children[0].textContent="Korábbi tartozás";debt.children[2].textContent="Fennmaradó tartozás"}
+    const debt=card.querySelector(".debt-row");if(debt){const oldDebt=debt.querySelector('[data-output="oldDebt"]')?.textContent||fmt(0),remainingDebt=debt.querySelector('[data-output="debt"]')?.textContent||fmt(0);debt.innerHTML=`<td colspan="2" class="debt-pair"><span>Korábbi tartozás:</span><strong class="number" data-output="oldDebt">${oldDebt}</strong></td><td colspan="2" class="debt-pair"><span>Fennmaradó tartozás:</span><strong class="number" data-output="debt">${remainingDebt}</strong></td>`}
   }
   function setOutput(card,name,value){card.querySelectorAll(`[data-output="${name}"]`).forEach(element=>element.textContent=value)}
   function updatePayOutputs(card,employeeId,record){
