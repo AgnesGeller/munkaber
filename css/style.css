@@ -30,15 +30,21 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
 @media(max-width:650px){.fuel-setting-row{grid-template-columns:22px 1fr}.fuel-setting-row span,.fuel-setting-row>input[type="number"]{grid-column:2}.fuel-setting-row>input[type="number"]{font-size:16px}}
 
 @media print{
-  body.print-selected .pay-head h2{font-size:15pt}
-  body.print-selected .pay-head strong{font-size:9.5pt}
-  body.print-selected .pay-head small{font-size:8.5pt}
-  body.print-selected .summary-strip span{font-size:7.8pt}
-  body.print-selected .summary-strip b{font-size:9pt}
-  body.print-selected .pay-table{font-size:8.3pt;line-height:1.08}
-  body.print-selected .pay-table th,body.print-selected .pay-table td{height:4.4mm;padding:.4mm .9mm}
-  body.print-selected .pay-table input{height:3.4mm;font-size:8.3pt}
-  body.print-selected .item-inline-summary{font-size:7.5pt}
+  body.print-selected .pay-head h2{font-size:17pt;font-weight:900}
+  body.print-selected .pay-head strong{font-size:10.5pt;font-weight:900}
+  body.print-selected .pay-head small{font-size:9.5pt;font-weight:800}
+  body.print-selected .summary-strip span{font-size:8.8pt;font-weight:800}
+  body.print-selected .summary-strip b{font-size:10.2pt;font-weight:900}
+  body.print-selected .pay-table{table-layout:fixed;font-size:9.3pt;font-weight:650;line-height:1.04}
+  body.print-selected .pay-table th,body.print-selected .pay-table td{height:4.4mm;padding:.3mm .55mm}
+  body.print-selected .pay-table th{font-weight:900}
+  body.print-selected .pay-table th:nth-child(1){width:34%}
+  body.print-selected .pay-table th:nth-child(2){width:14%}
+  body.print-selected .pay-table th:nth-child(3){width:24%}
+  body.print-selected .pay-table th:nth-child(4){width:28%}
+  body.print-selected .pay-table input{height:3.4mm;font-size:9.3pt;font-weight:800}
+  body.print-selected .pay-table .number,body.print-selected .pay-row-total{font-weight:900;white-space:nowrap}
+  body.print-selected .item-inline-summary{font-size:8.5pt;font-weight:800;line-height:1.02}
 }
 
 .bonus-item-row td{background:#fff0b5!important}.bonus-summary{color:#7a5700}.other-item-row td{background:#dff2df!important}.other-summary{color:#266b2a}.refresh-button.working{background:#fff1aa}.refresh-button.refreshed{border-color:#3d8b2e;color:#fff;background:#56a532}.refresh-button.refresh-error{border-color:#b9161e;color:#fff;background:var(--red)}
