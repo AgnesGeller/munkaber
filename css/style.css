@@ -41,8 +41,8 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
   body.print-selected .pay-table th{font-weight:900}
   body.print-selected .pay-table th:nth-child(1){width:34%}
   body.print-selected .pay-table th:nth-child(2){width:14%}
-  body.print-selected .pay-table th:nth-child(3){width:24%}
-  body.print-selected .pay-table th:nth-child(4){width:28%}
+  body.print-selected .pay-table th:nth-child(3){width:22%}
+  body.print-selected .pay-table th:nth-child(4){width:30%}
   body.print-selected .pay-table th:nth-child(2),body.print-selected .pay-table input[data-field="days"],body.print-selected .pay-table input[data-field="hours"],body.print-selected .pay-table input[data-field="overtime"],body.print-selected .pay-table input[data-field="vacation"],body.print-selected .fuel-row td:nth-child(2){text-align:center}
   body.print-selected .pay-table input{height:4.5mm;font-size:10.5pt;font-weight:800}
   body.print-selected .pay-table .number,body.print-selected .pay-row-total{font-weight:900;white-space:nowrap}
@@ -52,6 +52,7 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
   body.print-selected .debt-row .debt-pair strong{margin-left:1mm;font-size:10.5pt}
   body.print-selected .cash-row td{font-size:9.8pt;line-height:1.08}
   body.print-selected .cash-row td:last-child{font-size:11pt}
+  body.print-selected .pay-table th:last-child,body.print-selected .pay-table td:last-child{padding-right:1mm}
 }
 
 .bonus-item-row td{background:#fff0b5!important}.bonus-summary{color:#7a5700}.other-item-row td{background:#dff2df!important}.other-summary{color:#266b2a}.refresh-button.working{background:#fff1aa}.refresh-button.refreshed{border-color:#3d8b2e;color:#fff;background:#56a532}.refresh-button.refresh-error{border-color:#b9161e;color:#fff;background:var(--red)}
