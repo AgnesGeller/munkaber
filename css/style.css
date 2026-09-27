@@ -52,12 +52,14 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
   body.print-selected .debt-row .debt-pair strong{margin-left:1mm;font-size:10.5pt}
   body.print-selected .cash-row td{font-size:9.8pt;line-height:1.08}
   body.print-selected .cash-row td:last-child{font-size:11pt}
-  body.print-selected .cash-row:has([data-cash-total]){display:grid;grid-template-columns:max-content minmax(0,1fr);width:100%}
-  body.print-selected .cash-row:has([data-cash-total]) td{display:flex;align-items:center;min-width:0;height:6mm}
-  body.print-selected .cash-row:has([data-cash-total]) td:first-child{padding-right:1.2mm;white-space:nowrap}
-  body.print-selected .cash-row:has([data-cash-total]) td:last-child{justify-content:flex-end}
   body.print-selected .pay-table th:last-child,body.print-selected .pay-table td:last-child{padding-right:1mm}
 }
+
+.pay-table .cash-total-row td,.pay-table .cash-total-row td:last-child{padding:0!important;border:0!important;background:transparent!important}
+.handover-row{display:flex;align-items:stretch;width:100%;font-weight:900}
+.handover-row span{display:flex;align-items:center;flex:0 0 auto;padding:4px 7px;color:#173e20;background:#fff0a3}
+.handover-row strong{display:flex;align-items:center;justify-content:flex-end;flex:1 1 auto;min-width:0;border:2px solid #d39b00;padding:4px 7px;color:#287d20;background:#fffbe9;font-size:20px;white-space:nowrap}
+@media print{body.print-selected .handover-row span{height:6mm;padding:.6mm .8mm;font-size:9.8pt}body.print-selected .handover-row strong{height:6mm;padding:.6mm 1mm;font-size:11pt}}
 
 .bonus-item-row td{background:#fff0b5!important}.bonus-summary{color:#7a5700}.other-item-row td{background:#dff2df!important}.other-summary{color:#266b2a}.refresh-button.working{background:#fff1aa}.refresh-button.refreshed{border-color:#3d8b2e;color:#fff;background:#56a532}.refresh-button.refresh-error{border-color:#b9161e;color:#fff;background:var(--red)}
 .card-actions .print-action{border:1px solid #77add8;color:#174e7a;background:#d9efff}.card-actions .email-action{border:1px solid #d66b00;color:#fff;background:#ed8518}.card-actions .viber-action{border:1px solid #5d3aa8;color:#fff;background:#7860c8}.card-actions .print-action:hover{background:#c4e6ff}.card-actions .email-action:hover{background:#d8730d}.card-actions .viber-action:hover{background:#6750b7}
