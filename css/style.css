@@ -52,6 +52,10 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
   body.print-selected .debt-row .debt-pair strong{margin-left:1mm;font-size:10.5pt}
   body.print-selected .cash-row td{font-size:9.8pt;line-height:1.08}
   body.print-selected .cash-row td:last-child{font-size:11pt}
+  body.print-selected .cash-row:has([data-cash-total]){display:grid;grid-template-columns:max-content minmax(0,1fr);width:100%}
+  body.print-selected .cash-row:has([data-cash-total]) td{display:flex;align-items:center;min-width:0;height:6mm}
+  body.print-selected .cash-row:has([data-cash-total]) td:first-child{padding-right:1.2mm;white-space:nowrap}
+  body.print-selected .cash-row:has([data-cash-total]) td:last-child{justify-content:flex-end}
   body.print-selected .pay-table th:last-child,body.print-selected .pay-table td:last-child{padding-right:1mm}
 }
 
