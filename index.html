@@ -57,7 +57,7 @@
         <form id="attendanceForm" class="attendance-form">
           <label>Dátum<input id="attendanceDate" name="date" type="date" required></label>
           <details class="employee-picker"><summary id="employeePickerSummary">Dolgozók kiválasztása</summary><div id="attendanceEmployees"></div></details>
-          <label>Gyors művelet<select id="attendanceAction" name="action" required><option value="">Válassz eseményt…</option><option value="absence">Nem dolgozott (−1 nap)</option><option value="halfday">Fél nap (−1 nap + órák)</option><option value="paid-leave">Fizetett szabadság</option><option value="unpaid-leave">Fizetetlen szabadnap (−1 nap)</option><option value="rain">Esős nap (−1 nap)</option><option value="extra-day">Plusz munkanap (+1 nap)</option><option value="saturday">Szombati munkanap (+1 nap)</option><option value="hours">Normál munkaóra</option><option value="overtime">Túlóra</option><option value="bonus">Bónusz</option><option value="trip">Fuvar</option><option value="advance">Előleg</option><option value="loan">Kölcsön</option><option value="repayment">Törlesztés</option><option value="payback">Visszafizetés</option><option value="other-income">Egyéb bevétel</option><option value="other-deduction">Egyéb levonás</option><option value="custom">Egyedi esemény</option></select></label>
+          <label>Gyors művelet<select id="attendanceAction" name="action" required><option value="">Válassz eseményt…</option><option value="absence">Nem dolgozott (−1 nap)</option><option value="halfday">Fél nap (−1 nap + órák)</option><option value="paid-leave">Fizetett szabadság</option><option value="unpaid-leave">Fizetetlen szabadnap (−1 nap)</option><option value="rain">Esős nap (−1 nap)</option><option value="extra-day">Plusz munkanap (+1 nap)</option><option value="saturday">Szombati munkanap (+1 nap)</option><option value="fuel-plus">Üzemanyag (+1 nap)</option><option value="fuel-minus">Üzemanyag (−1 nap)</option><option value="hours">Normál munkaóra</option><option value="overtime">Túlóra</option><option value="bonus">Bónusz</option><option value="trip">Fuvar</option><option value="advance">Előleg</option><option value="loan">Kölcsön</option><option value="repayment">Törlesztés</option><option value="payback">Visszafizetés</option><option value="other-income">Egyéb bevétel</option><option value="other-deduction">Egyéb levonás</option><option value="custom">Egyedi esemény</option></select></label>
           <div id="quantityField" class="event-field" hidden><label id="quantityLabel">Mennyiség<input name="quantity" type="number" step="0.5" min="0"></label></div>
           <div id="amountField" class="event-field" hidden><label>Összeg (Ft)<input name="amount" type="text" inputmode="numeric"></label></div>
           <div id="labelField" class="event-field" hidden><label>Megnevezés<input name="label" maxlength="100"></label></div>
@@ -125,7 +125,7 @@
   <script src="js/supabase-config.js?v=13"></script>
   <script src="js/storage.js?v=46"></script>
   <script src="js/login.js?v=31"></script>
-  <script src="js/app.js?v=55"></script>
+  <script src="js/app.js?v=56"></script>
   <script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("service-worker.js"));}</script>
 </body>
 </html>
