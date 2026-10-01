@@ -94,3 +94,10 @@ input[type="number"]{appearance:textfield;-moz-appearance:textfield}input[type="
   .pay-table .debt-pair span{font-size:10px}
   .pay-table .debt-pair strong{font-size:14px}
 }
+
+@media screen{
+  .pay-table .cashbox-balance td{border-color:#7653a7;background:#eadfff!important}
+  .pay-table .cashbox-balance td:first-child{color:#35125f;font-weight:900}
+  .pay-table .cashbox-balance input[data-cash="balance"]{border-bottom:2px solid #684094;color:#35125f;background:#f8f3ff;font-size:19px!important;font-weight:900}
+  .pay-table .cashbox-balance input[data-cash="balance"]:focus{outline-color:#684094;background:#fff}
+}
