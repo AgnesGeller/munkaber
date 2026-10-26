@@ -57,7 +57,7 @@
     const e=state.employees.find(x=>x.employeeId===employeeId); if(!e)return {};
     const dayPay=num(record.days)*num(e.dailyRate),vacationPay=num(record.vacation)*num(e.dailyRate),hourPay=num(record.hours)*num(e.hourlyRate),overtimePay=num(record.overtime)*num(e.overtimeRate),fuelPay=fuelDays(record)*num(record.fuelDaily);
     const bonus=sumItems(record.bonuses), other=sumItems(record.others), income=dayPay+vacationPay+hourPay+overtimePay+fuelPay+bonus+other;
-    const additions=num(record.payback)+num(record.loan),deductions=num(record.advance)+num(record.repayment),cash=Math.max(0,income+additions-deductions);
+    const additions=num(record.payback)+num(record.loan),deductions=num(record.advance)+num(record.repayment),cash=income+additions-deductions;
     const oldDebt=record.debtOpening==null?previousDebtRaw(employeeId):num(record.debtOpening), debt=Math.max(0,oldDebt+num(record.loan)-num(record.repayment));
     const cb=record.cashbox||{},cashbox=cashboxFigures(employeeId,record,key),withdrawal=num(cb.withdrawal),totalCash=cash+num(cb.topup)-withdrawal;
     return {dayPay,vacationPay,hourPay,overtimePay,fuelPay,bonus,other,income,additions,deductions,cash,oldDebt,debt,current:cashbox.current,nextCash:cashbox.next,opening:cashbox.opening,withdrawal,totalCash};
